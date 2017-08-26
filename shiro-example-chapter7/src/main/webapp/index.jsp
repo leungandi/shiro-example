@@ -17,6 +17,10 @@
 	<br />
 	<a href="${contextPath}/permission">权限授权</a>
 	<br />
+	
+	<div>
+		<a href="${pageContext.request.contextPath}/logout">退出</a>
+	</div>
 
 </body>
 </html>

@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.9</version>
+			<version>4.12</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -68,5 +68,6 @@
     <module>shiro-example-chapter6</module>
     <module>shiro-example-chapter7</module>
     <module>shiro-example-chapter10</module>
+    <module>shiro-example-chapter12</module>
   </modules>
 </project>

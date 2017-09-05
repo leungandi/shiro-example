@@ -102,11 +102,11 @@
         <!-- anon，authcBasic，auchc，user是认证过滤器，
 			 perms，roles，ssl，rest，port是授权过滤器 -->
             <value>
-            	/=authcBasic
+            	<!-- /=authcBasic -->
                 /unauthorized= anon
                 /authenticated = authc
                 /permission= authc
-                /role= authc
+                /role= user
                 /logout = logout
             </value>
         </property>

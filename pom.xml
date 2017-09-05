@@ -69,5 +69,6 @@
     <module>shiro-example-chapter7</module>
     <module>shiro-example-chapter10</module>
     <module>shiro-example-chapter12</module>
+    <module>shiro-example-chapter14</module>
   </modules>
 </project>

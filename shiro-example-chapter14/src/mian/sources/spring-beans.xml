@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- dataSource -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/shiro"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="abstractDao" abstract="true">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- Dao -->
+	<bean id="sysPermissionsDao" class="com.szl.shiro.example.chapter14.dao.impl.SysPermissionsDaoImpl" parent="abstractDao"/>
+	<bean id="sysRolesDao" class="com.szl.shiro.example.chapter14.dao.impl.SysRolesDaoImpl" parent="abstractDao"/>
+	<bean id="sysUsersDao" class="com.szl.shiro.example.chapter14.dao.impl.SysUsersDaoImpl" parent="abstractDao"/>
+	
+	<bean id="passwordHelper" class="com.szl.shiro.example.chapter14.util.PasswordHelper"></bean>
+	
+	<!-- Service -->
+	<bean id="sysPermissionsService" class="com.szl.shiro.example.chapter14.service.impl.SysPermissionsServiceImpl">
+		<property name="sysPermissionsDao" ref="sysPermissionsDao"></property>
+	</bean>
+	<bean id="sysRolesService" class="com.szl.shiro.example.chapter14.service.impl.SysRolesServiceImpl">
+		<property name="sysRolesDao" ref="sysRolesDao"></property>
+	</bean>
+	<bean id="sysUsersService" class="com.szl.shiro.example.chapter14.service.impl.SysUsersServiceImpl">
+		<property name="sysUsersDao" ref="sysUsersDao"></property>
+		<property name="passwordHelper" ref="passwordHelper"></property>
+	</bean>
+	
+
+</beans>

@@ -44,7 +44,7 @@ public class UserController {
 		Subject subject = SecurityUtils.getSubject();
 		
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-		
+		token.setRememberMe(true);
 		try {
 			
 			subject.login(token);
